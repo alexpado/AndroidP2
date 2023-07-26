@@ -6,7 +6,7 @@ import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generat
 
 public class FakeApiService implements ApiService {
 
-    private List<User> users = generateUsers();
+    private final List<User> users = generateUsers();
 
     /**
      * Return a list of {@link User}
@@ -14,8 +14,7 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public List<User> getUsers() {
-        // TODO A modifier
-        return null;
+        return this.users;
     }
 
     /**
@@ -24,7 +23,7 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void generateRandomUser() {
-        // TODO A modifier
+        this.users.add(User.random());
     }
 
     /**
@@ -32,6 +31,6 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void deleteUser(User user) {
-        // TODO A modifier
+        this.users.remove(user);
     }
 }
